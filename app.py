@@ -73,6 +73,19 @@ def updatefortune():
     )
     return render_template('index.html')
 
+
+@app.route("/deletefortune/", methods=['GET', 'POST'])
+def deletefortune():
+    fortune_key = request.form['deletefortune']
+    origin_key = request.form['deleteorigin']
+    response = table.delete_item(
+        Key={
+            'FortuneName': fortune_key,
+            'FortuneOrigin': origin_key
+        }
+    )
+    return render_template('index.html')
+
 if __name__ == "__main__":
         app.run()
 
