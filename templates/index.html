@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fortune of the Day</title>
+</head>
+<body>
+    <div class="main-container">
+      <h1>Fortune of the Day</h1>
+        <div class="fortune-container">
+          
+          <form action="/addfortune/" method="post">
+            <label for="addfortune">Please write the fortune here:</label><br>
+            <input type="text" id="addfortune" name="addfortune"><br>
+            <label for="addorigin">Please write the origin here:</label><br>
+            <input type="text" id="addorigin" name="addorigin"><br>
+            <button name="addfortunebutton" type="submit">Add The Fortune!</button>
+          </form>
+          
+          <form action="/scanfortune/" method="get">
+            <button name="scanfortunebutton" type="submit">Scan The Fortune!</button>
+            <p>{{ fortunes }}</p>
+          </form>
+          
+          <form action='/readfortune/' method="post">
+            <label for="readfortune">Please choose which fortune you would like to read.</label><br>
+            <input type="text" id="readfortune" name="readfortune"><br>
+            <label for="readorigin">Please choose which fortune you would like to read.</label><br>
+            <input type="text" id="readorigin" name="readorigin"><br>
+            <button name="readfortunebutton" type="submit">Read The Fortune!</button>
+            <p>{{ fortune }}</p>
+          </form>
+        
+          <form action='/updatefortune/' method="post">
+
+            <label for="updatefortune">Choose the name of the fortune that you would like to update.</label><br>
+            <input type="text" id="updatefortune" name="updatefortune"><br>
+            <label for="updateorigin">Choose the origin of the fortune that you would like to update.</label><br>
+            <input type="text" id="updateorigin" name="updateorigin"><br>
+
+            <label for="updateattribute1">Define who the author of the fortune is.</label><br>
+            <input type="text" id="updateattribute1" name="updateattribute1"><br>
+            <label for="updateattribute2">Define what color the fortune should be.</label><br>
+            <input type="text" id="updateattribute2" name="updateattribute2"><br>
+
+            <button name="updatefortunebutton" type="submit">Update The Fortune!</button>
+            <p>{{ fortune }}</p>
+          </form>
+
+        </div>
+        <div class="summary-container">
+            <div class="bordered summary-box">
+                <p class="summary-text">This is a basic python flask web application for the fortunes.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
