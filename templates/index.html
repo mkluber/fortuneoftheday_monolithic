@@ -46,6 +46,17 @@
             <p>{{ fortune }}</p>
           </form>
 
+          <form action='/deletefortune/' method="post">
+
+            <label for="deletefortune">Choose the name of the fortune that you would like to delete.</label><br>
+            <input type="text" id="deletefortune" name="deletefortune"><br>
+            <label for="deleteorigin">Choose the origin of the fortune that you would like to delete.</label><br>
+            <input type="text" id="deleteorigin" name="deleteorigin"><br>
+
+            <button name="deletefortunebutton" type="submit">Update The Fortune!</button>
+            <p>{{ fortune }}</p>
+          </form>
+
         </div>
         <div class="summary-container">
             <div class="bordered summary-box">
