@@ -7,12 +7,12 @@ application = Flask(__name__)
 dynamodb = boto3.resource('dynamodb', region_name='eu-central-1')
 table = dynamodb.Table('Fortunes')
 
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route("/addfortune/", methods=['POST'])
+@application.route("/addfortune/", methods=['POST'])
 def addfortune():
     fortune = request.form['addfortune']
     origin = request.form['addorigin']
@@ -25,14 +25,14 @@ def addfortune():
     return render_template('index.html')
 
 
-@app.route("/scanfortune/", methods=['GET'])
+@application.route("/scanfortune/", methods=['GET'])
 def scanfortune():
     response = table.scan()
     items = response['Items']
     print(items)
     return render_template('index.html', fortunes=items)
 
-@app.route("/readfortune/", methods=['GET', 'POST'])
+@application.route("/readfortune/", methods=['GET', 'POST'])
 def readfortune():
     fortune_key = request.form['readfortune']
     origin_key = request.form['readorigin']
@@ -49,7 +49,7 @@ def readfortune():
 
 
 
-@app.route("/updatefortune/", methods=['GET', 'POST'])
+@application.route("/updatefortune/", methods=['GET', 'POST'])
 def updatefortune():
     fortune_key = request.form['updatefortune']
     origin_key = request.form['updateorigin']
@@ -74,7 +74,7 @@ def updatefortune():
     return render_template('index.html')
 
 
-@app.route("/deletefortune/", methods=['GET', 'POST'])
+@application.route("/deletefortune/", methods=['GET', 'POST'])
 def deletefortune():
     fortune_key = request.form['deletefortune']
     origin_key = request.form['deleteorigin']
