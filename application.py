@@ -2,7 +2,7 @@ import boto3
 import random
 from flask import Flask, render_template, Response, request, redirect, url_for
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 dynamodb = boto3.resource('dynamodb', region_name='eu-central-1')
 table = dynamodb.Table('Fortunes')
@@ -87,5 +87,5 @@ def deletefortune():
     return render_template('index.html')
 
 if __name__ == "__main__":
-        app.run()
+        application.run()
 
