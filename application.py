@@ -1,5 +1,4 @@
 import boto3
-import random
 from flask import Flask, render_template, Response, request, redirect, url_for
 
 application = Flask(__name__)

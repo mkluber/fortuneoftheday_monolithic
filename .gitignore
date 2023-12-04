@@ -1,1 +1,2 @@
-fortuneoftheday.zip
+*.zip
+.venv
