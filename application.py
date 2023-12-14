@@ -11,10 +11,10 @@ def index():
     return render_template('index.html')
 
 
-@application.route("/addfortune/", methods=['POST'])
-def addfortune():
-    fortune = request.form['addfortune']
-    origin = request.form['addorigin']
+@application.route("/createfortune/", methods=['POST'])
+def createfortune():
+    fortune = request.form['createfortune']
+    origin = request.form['createorigin']
     table.put_item(
         Item={
         'FortuneName': fortune,
